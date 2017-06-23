@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+namespace NaviSystem{
 /// <summary>
 /// 新手引导动画
 /// </summary>
@@ -62,4 +63,4 @@ public class NaviMask : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, world, canvas.GetComponent<Camera>(), out position);
         return position;
     }
-}
+}}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine;
-
+namespace NaviSystem{
 public class NaviPanel : MonoBehaviour {
     public NaviMask navimask;
     public List<NaviNode> naviNodes;
@@ -48,4 +48,4 @@ public class NaviPanel : MonoBehaviour {
     {
         Destroy(gameObject);
     }
-}
+}}

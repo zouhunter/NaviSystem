@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
-
+namespace NaviSystem{
 [RequireComponent(typeof(EventPass))]
 public class NaviNode : MonoBehaviour
 {
@@ -23,4 +23,5 @@ public class NaviNode : MonoBehaviour
             onComplete.Invoke();
         }
     }
+}
 }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-
+namespace NaviSystem{
 public class EventPass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
     public event UnityAction onPointDown;
@@ -61,4 +61,5 @@ public class EventPass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             }
         }
     }
+}
 }
