@@ -29,7 +29,7 @@ public class EventPass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     //监听点击
     public void OnPointerClick(PointerEventData eventData)
     {
-        PassEvent(eventData, ExecuteEvents.submitHandler);
+        //PassEvent(eventData, ExecuteEvents.submitHandler);
         PassEvent(eventData, ExecuteEvents.pointerClickHandler);
         if (onPointClick != null) onPointClick();
     }

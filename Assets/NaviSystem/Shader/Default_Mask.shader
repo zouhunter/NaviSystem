@@ -1,4 +1,6 @@
-﻿Shader "UI/Default_Mask"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "UI/Default_Mask"
 {
 	Properties
 	{
@@ -89,7 +91,7 @@
 	{
 		v2f OUT;
 		OUT.worldPosition = IN.vertex;
-		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+		OUT.vertex = UnityObjectToClipPos(IN.vertex);
 		OUT.texcoord = IN.texcoord;
 		OUT.color = IN.color * _Color;
 		return OUT;
