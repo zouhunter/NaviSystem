@@ -18,18 +18,21 @@ namespace NaviSystem
         float yVelocity = 0f;
         Canvas canvas;
         Vector3[] corners = new Vector3[4];
+        private Button btn;
         private void Awake()
         {
             canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
             material = GetComponent<Image>().material;
+            btn = GetComponent<Button>();
+            btn.onClick.AddListener(()=> { Restart(target); });
         }
+
         public void Restart(NaviNode target)
         {
             this.target = target;
-
+            target.OnActive();
             (canvas.transform as RectTransform).GetWorldCorners(corners);
-            for (int i = 0; i < corners.Length; i++)
-            {
+            for (int i = 0; i < corners.Length; i++){
                 current = Mathf.Max(Vector3.Distance(WordToCanvasPos(canvas, corners[i]), center), current);
             }
 
