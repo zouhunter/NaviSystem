@@ -24,13 +24,12 @@ namespace NaviSystem
             canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
             material = GetComponent<Image>().material;
             btn = GetComponent<Button>();
-            btn.onClick.AddListener(()=> { Restart(target); });
+            btn.onClick.AddListener(()=> { MoveToNode(target); });
         }
 
-        public void Restart(NaviNode target)
+        public void MoveToNode(NaviNode target)
         {
             this.target = target;
-            target.OnActive();
             (canvas.transform as RectTransform).GetWorldCorners(corners);
             for (int i = 0; i < corners.Length; i++){
                 current = Mathf.Max(Vector3.Distance(WordToCanvasPos(canvas, corners[i]), center), current);
@@ -43,8 +42,7 @@ namespace NaviSystem
         void Update()
         {
             float value = Mathf.SmoothDamp(current, diameter, ref yVelocity, 0.3f);
-            if (!Mathf.Approximately(value, current))
-            {
+            if (!Mathf.Approximately(value, current)){
                 current = value;
                 material.SetFloat("_Silder", current);
             }
@@ -63,7 +61,6 @@ namespace NaviSystem
 
             center = new Vector4(position.x, position.y, 0f, 0f);
             material.SetVector("_Center", center);
-
         }
         Vector2 WordToCanvasPos(Canvas canvas, Vector3 world)
         {

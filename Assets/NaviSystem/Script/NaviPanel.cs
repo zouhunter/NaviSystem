@@ -9,14 +9,14 @@ using System;
 public class NaviPanel : MonoBehaviour
 {
     public NaviMask navimask;
-    public Transform NaviNodeRoot;
+    private Transform naviNodeRoot { get { return transform; } }
     private List<NaviNode> naviNodes;
     private Dictionary<string, RectTransform> transDic = new Dictionary<string, RectTransform>();
     private int _id = -1;
 
     private void Awake()
     {
-        LoadNaviNodes();
+        naviNodes =NaviUtility.LoadNaviNodes(naviNodeRoot);
         if (naviNodes == null || navimask == null) Debug.LogError("[emptyerr]:naviNodes or navimask is null");
         foreach (var item in naviNodes)
         {
@@ -41,30 +41,6 @@ public class NaviPanel : MonoBehaviour
         return transDic[path];
     }
 
-    private void LoadNaviNodes()
-    {
-        naviNodes = new List<NaviNode>();
-        RetriveTransform(NaviNodeRoot, (x) =>{
-            naviNodes.Add(x);
-        });
-        naviNodes.Sort((x, y) => { return string.Compare(x.name, y.name); });
-    }
-    private void RetriveTransform(Transform root, UnityAction<NaviNode> onRetrive)
-    {
-        var node = root.GetComponent<NaviNode>();
-        if (node != null)
-        {
-            onRetrive.Invoke(node);
-        }
-        if (root.childCount > 0)
-        {
-            foreach (Transform child in root)
-            {
-                RetriveTransform(child, onRetrive);
-            }
-        }
-    }
-
     private void NextNavi()
     {
         _id++;
@@ -86,10 +62,12 @@ public class NaviPanel : MonoBehaviour
             naviNodes[i].gameObject.SetActive(i == _id);
             if (i == _id)
             {
-                navimask.Restart(naviNodes[i]);
+                naviNodes[i].OnActive();
+                navimask.MoveToNode(naviNodes[i]);
             }
         }
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -101,9 +79,5 @@ public class NaviPanel : MonoBehaviour
     private void OnComplete()
     {
         Destroy(gameObject);
-
-        //PopupPanel.Data data = new PopupPanel.Data("引导结束", "如需关闭引导系统，请在设置菜单中取消开启选择", ()=> {
-        //});
-        //BundleUISystem.UIGroup.Open<PopupPanel>(data);
     }
 }
