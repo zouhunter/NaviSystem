@@ -13,9 +13,12 @@ namespace NaviSystem
     {
         public UnityAction onComplete;
         public string infomation;
+        [HideInInspector]
         public List<TransNode> naviNodes;
 #if UNITY_EDITOR //用于快速更新
+        [HideInInspector]
         public string id;//指定预制体
+        [HideInInspector]
         public List<string> path;//指定路径
 #endif
         public Func<List<string>,RectTransform> FindTran { get; set; }
