@@ -16,57 +16,92 @@ namespace NaviSystem
         private float diameter; // 直径
         private float current = 0f;
         float yVelocity = 0f;
-        Canvas canvas;
+        RectTransform canvasRect;
         Vector3[] corners = new Vector3[4];
         private Button btn;
+        private bool normalMove;
+        private float startDia;
         private void Awake()
         {
-            canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+            canvasRect = GameObject.Find("Canvas").GetComponent<RectTransform>();
             material = GetComponent<Image>().material;
             btn = GetComponent<Button>();
-            btn.onClick.AddListener(()=> { MoveToNode(target); });
+            btn.onClick.AddListener(WarningCurrentNode);
         }
 
         public void MoveToNode(NaviNode target)
         {
+            normalMove = true;
             this.target = target;
-            (canvas.transform as RectTransform).GetWorldCorners(corners);
+            canvasRect.GetWorldCorners(corners);
             for (int i = 0; i < corners.Length; i++){
-                current = Mathf.Max(Vector3.Distance(WordToCanvasPos(canvas, corners[i]), center), current);
+                current = Mathf.Max(Vector3.Distance(WordToCanvasPos(canvasRect, corners[i]), center), current);
             }
+            current *= 0.5f;
+        }
 
-            material.SetFloat("_Silder", current);
+        public void WarningCurrentNode()
+        {
+            normalMove = false;
+            canvasRect.GetWorldCorners(corners);
+            for (int i = 0; i < corners.Length; i++){
+                current = Mathf.Max(Vector3.Distance(WordToCanvasPos(canvasRect, corners[i]), center), current);
+            }
+            current *= 0.2f;
+            startDia = current;
         }
 
 
         void Update()
         {
-            float value = Mathf.SmoothDamp(current, diameter, ref yVelocity, 0.3f);
-            if (!Mathf.Approximately(value, current)){
-                current = value;
-                material.SetFloat("_Silder", current);
+            if(normalMove)
+            {
+                float value = Mathf.SmoothDamp(current, diameter, ref yVelocity, 0.3f);
+                if (!Mathf.Approximately(value, current))
+                {
+                    current = value;
+                    material.SetFloat("_Silder", current);
+                }
             }
+            else
+            {
+                float value = Mathf.SmoothDamp(current, diameter, ref yVelocity, 0.3f);
+                if (!Mathf.Approximately(value, current))
+                {
+                    current = value;
+                    material.SetFloat("_Silder", current);
+                }
+            }
+          
             UpdateCenter();
         }
 
         void UpdateCenter()
         {
             target.GetComponent<RectTransform>().GetWorldCorners(corners);
-            diameter = Vector2.Distance(WordToCanvasPos(canvas, corners[0]), WordToCanvasPos(canvas, corners[2])) / 2f;
+            diameter = Vector2.Distance(WordToCanvasPos(canvasRect, corners[0]), WordToCanvasPos(canvasRect, corners[2])) / 2f;
             float x = corners[0].x + ((corners[3].x - corners[0].x) / 2f);
             float y = corners[0].y + ((corners[1].y - corners[0].y) / 2f);
             center = new Vector3(x, y, 0f);
             Vector2 position = Vector2.zero;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, center, canvas.GetComponent<Camera>(), out position);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, center, canvasRect.GetComponent<Camera>(), out position);
 
             center = new Vector4(position.x, position.y, 0f, 0f);
             material.SetVector("_Center", center);
         }
-        Vector2 WordToCanvasPos(Canvas canvas, Vector3 world)
+        static Vector2 WordToCanvasPos(RectTransform canvas, Vector3 world)
         {
             Vector2 position = Vector2.zero;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, world, canvas.GetComponent<Camera>(), out position);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas, world, canvas.GetComponent<Camera>(), out position);
             return position;
         }
+
+        private static float spring(float start, float end, float value)
+        {
+            value = Mathf.Clamp01(value);
+            value = (Mathf.Sin(value * Mathf.PI * (0.2f + 2.5f * value * value * value)) * Mathf.Pow(1f - value, 2.2f) + value) * (1f + (1.2f * (1f - value)));
+            return start + (end - start) * value;
+        }
+
     }
 }

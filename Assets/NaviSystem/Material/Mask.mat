@@ -64,7 +64,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Silder: 81.42795
+    - _Silder: 731.0274
     - _SrcBlend: 1
     - _Stencil: 0
     - _StencilComp: 8
@@ -75,6 +75,6 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _Center: {r: -3, g: 2.2999878, b: 0, a: 0}
+    - _Center: {r: 167.40002, g: 152, b: 0, a: 0}
     - _Color: {r: 0, g: 0.11824321, b: 0.25735295, a: 0.441}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

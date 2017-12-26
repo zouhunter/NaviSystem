@@ -476,17 +476,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infomation: 
   naviNodes:
-  - name: Panel1
-    localPosition: {x: -3, y: 30, z: 0}
+  - name: Panel
+    localPosition: {x: -8, y: 4, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
     anchorMin: {x: 0.5, y: 0.5}
     anchorMax: {x: 0.5, y: 0.5}
-    anchoredPosition: {x: -3, y: 30}
-    sizeDelta: {x: 384, y: 274}
+    anchoredPosition: {x: -8, y: 4}
+    sizeDelta: {x: 770, y: 451}
     pivot: {x: 0.5, y: 0.5}
   - name: confer
-    localPosition: {x: 0, y: -27.699997, z: 0}
+    localPosition: {x: 0, y: -116.2, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     anchorMin: {x: 0.5, y: 0}
@@ -1159,17 +1159,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infomation: 
   naviNodes:
-  - name: Panel1
-    localPosition: {x: -3, y: 30, z: 0}
+  - name: Panel
+    localPosition: {x: -8, y: 4, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
     anchorMin: {x: 0.5, y: 0.5}
     anchorMax: {x: 0.5, y: 0.5}
-    anchoredPosition: {x: -3, y: 30}
-    sizeDelta: {x: 384, y: 274}
+    anchoredPosition: {x: -8, y: 4}
+    sizeDelta: {x: 770, y: 451}
     pivot: {x: 0.5, y: 0.5}
   - name: close
-    localPosition: {x: 170.4, y: 122, z: 0}
+    localPosition: {x: 363.4, y: 210.5, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     anchorMin: {x: 1, y: 1}
@@ -1230,22 +1230,22 @@ Prefab:
     - target: {fileID: 224220417256012722, guid: 537f28e6562af3043b7c262a66fcc6c4,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -3
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 224220417256012722, guid: 537f28e6562af3043b7c262a66fcc6c4,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 30
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224220417256012722, guid: 537f28e6562af3043b7c262a66fcc6c4,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 384
+      value: 770
       objectReference: {fileID: 0}
     - target: {fileID: 224220417256012722, guid: 537f28e6562af3043b7c262a66fcc6c4,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 274
+      value: 451
       objectReference: {fileID: 0}
     - target: {fileID: 224220417256012722, guid: 537f28e6562af3043b7c262a66fcc6c4,
         type: 2}

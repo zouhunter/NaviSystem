@@ -109,8 +109,14 @@ Shader "UI/Default_Mask"
 		clip(color.a - 0.001);
 #endif
 		//-------------------add----------------------
-		color.a *= (distance(IN.worldPosition.xy,_Center.xy) > _Silder);
-		color.rgb *= color.a;
+		if (distance(IN.worldPosition.xy, _Center.xy) > _Silder)
+		{
+			float dis = distance(IN.worldPosition.xy, _Center.xy);
+			color.a *= (_Silder / dis) * sin(dis);
+		}
+		else {
+			clip(-1);
+		}
 		//-------------------add----------------------
 		return color;
 	}
