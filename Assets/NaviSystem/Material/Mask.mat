@@ -55,7 +55,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _ColorMask: 15
+    - _ColorMask: 39.8
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -64,17 +64,17 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Silder: 731.0274
+    - _Silder: 26.68107
     - _SrcBlend: 1
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
+    - _Stencil: 8.47
+    - _StencilComp: 20.6
+    - _StencilOp: 3.57
+    - _StencilReadMask: 288.3
+    - _StencilWriteMask: 279.6
     - _UVSec: 0
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
     - _Center: {r: 167.40002, g: 152, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.11824321, b: 0.25735295, a: 0.441}
+    - _Color: {r: 0.23729454, g: 0.4709141, b: 0.5661765, a: 0.641}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

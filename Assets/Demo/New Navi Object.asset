@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0312a974a791e840a4c574c73d0cf0f, type: 3}
+  m_Name: New Navi Object
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f3bc2a2751c30e1499e9cd84bf626f06, type: 2}
+  nodeList:
+  - name: confer1
+    infomation: 
+    naviNodes:
+    - name: Panel
+      localPosition: {x: -8, y: 4, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: 0, y: 0, z: 0, w: 1}
+      anchorMin: {x: 0.5, y: 0.5}
+      anchorMax: {x: 0.5, y: 0.5}
+      anchoredPosition: {x: -8, y: 4}
+      sizeDelta: {x: 770, y: 451}
+      pivot: {x: 0.5, y: 0.5}
+    - name: confer
+      localPosition: {x: 0, y: -116.2, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: -0, y: -0, z: -0, w: 1}
+      anchorMin: {x: 0.5, y: 0}
+      anchorMax: {x: 0.5, y: 0}
+      anchoredPosition: {x: 0, y: 109.3}
+      sizeDelta: {x: 160, y: 30}
+      pivot: {x: 0.5, y: 0.5}
+    id: 537f28e6562af3043b7c262a66fcc6c4
+    path:
+    - confer
+  - name: close1
+    infomation: 
+    naviNodes:
+    - name: Panel
+      localPosition: {x: -8, y: 4, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: 0, y: 0, z: 0, w: 1}
+      anchorMin: {x: 0.5, y: 0.5}
+      anchorMax: {x: 0.5, y: 0.5}
+      anchoredPosition: {x: -8, y: 4}
+      sizeDelta: {x: 770, y: 451}
+      pivot: {x: 0.5, y: 0.5}
+    - name: close
+      localPosition: {x: 363.4, y: 210.5, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: -0, y: -0, z: -0, w: 1}
+      anchorMin: {x: 1, y: 1}
+      anchorMax: {x: 1, y: 1}
+      anchoredPosition: {x: -21.6, y: -15}
+      sizeDelta: {x: 44.1, y: 30}
+      pivot: {x: 0.5, y: 0.5}
+    id: 537f28e6562af3043b7c262a66fcc6c4
+    path:
+    - close
+  - name: confer2
+    infomation: 
+    naviNodes:
+    - name: Panel2
+      localPosition: {x: -3, y: 30, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: 0, y: 0, z: 0, w: 1}
+      anchorMin: {x: 0.5, y: 0.5}
+      anchorMax: {x: 0.5, y: 0.5}
+      anchoredPosition: {x: -3, y: 30}
+      sizeDelta: {x: 384, y: 274}
+      pivot: {x: 0.5, y: 0.5}
+    - name: confer
+      localPosition: {x: 0, y: -27.699997, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: -0, y: -0, z: -0, w: 1}
+      anchorMin: {x: 0.5, y: 0}
+      anchorMax: {x: 0.5, y: 0}
+      anchoredPosition: {x: 0, y: 109.3}
+      sizeDelta: {x: 160, y: 30}
+      pivot: {x: 0.5, y: 0.5}
+    id: Demo
+    path:
+    - Canvas
+    - Panel2
+    - confer
+  - name: close2
+    infomation: 
+    naviNodes:
+    - name: Panel2
+      localPosition: {x: -3, y: 30, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: 0, y: 0, z: 0, w: 1}
+      anchorMin: {x: 0.5, y: 0.5}
+      anchorMax: {x: 0.5, y: 0.5}
+      anchoredPosition: {x: -3, y: 30}
+      sizeDelta: {x: 384, y: 274}
+      pivot: {x: 0.5, y: 0.5}
+    - name: close
+      localPosition: {x: 170.4, y: 122, z: 0}
+      localScale: {x: 1, y: 1, z: 1}
+      localRotation: {x: -0, y: -0, z: -0, w: 1}
+      anchorMin: {x: 1, y: 1}
+      anchorMax: {x: 1, y: 1}
+      anchoredPosition: {x: -21.6, y: -15}
+      sizeDelta: {x: 44.1, y: 30}
+      pivot: {x: 0.5, y: 0.5}
+    id: Demo
+    path:
+    - Canvas
+    - Panel2
+    - close

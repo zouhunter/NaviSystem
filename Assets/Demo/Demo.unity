@@ -476,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infomation: 
   naviNodes:
-  - name: Panel
+  - name: 50616e656c
     localPosition: {x: -8, y: 4, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -485,7 +485,7 @@ MonoBehaviour:
     anchoredPosition: {x: -8, y: 4}
     sizeDelta: {x: 770, y: 451}
     pivot: {x: 0.5, y: 0.5}
-  - name: confer
+  - name: 636f6e666572
     localPosition: {x: 0, y: -116.2, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -494,9 +494,10 @@ MonoBehaviour:
     anchoredPosition: {x: 0, y: 109.3}
     sizeDelta: {x: 160, y: 30}
     pivot: {x: 0.5, y: 0.5}
-  id: 537f28e6562af3043b7c262a66fcc6c4
+  id: 3533376632386536353632616633303433623763323632613636666363366334
   path:
-  - confer
+  - 636f6e666572
+  inited: 0
 --- !u!1 &469335592
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +586,7 @@ RectTransform:
   - {fileID: 483045659}
   - {fileID: 1445360043}
   - {fileID: 1790204095}
+  - {fileID: 771251937}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -896,6 +898,52 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 749489060}
+--- !u!1 &771251936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 771251937}
+  - component: {fileID: 771251938}
+  m_Layer: 5
+  m_Name: NaviPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &771251937
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771251936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 469335596}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &771251938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771251936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919aae1cc841d9a469df5b58b62b6d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naviObj: {fileID: 0}
 --- !u!1 &989258729
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infomation: 
   naviNodes:
-  - name: Panel2
+  - name: 50616e656c32
     localPosition: {x: -3, y: 30, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -955,7 +1003,7 @@ MonoBehaviour:
     anchoredPosition: {x: -3, y: 30}
     sizeDelta: {x: 384, y: 274}
     pivot: {x: 0.5, y: 0.5}
-  - name: confer
+  - name: 636f6e666572
     localPosition: {x: 0, y: -27.699997, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -964,11 +1012,12 @@ MonoBehaviour:
     anchoredPosition: {x: 0, y: 109.3}
     sizeDelta: {x: 160, y: 30}
     pivot: {x: 0.5, y: 0.5}
-  id: Demo
+  id: 44656d6f
   path:
-  - Canvas
-  - Panel2
-  - confer
+  - 43616e766173
+  - 50616e656c32
+  - 636f6e666572
+  inited: 0
 --- !u!114 &989258732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,7 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infomation: 
   naviNodes:
-  - name: Panel
+  - name: 50616e656c
     localPosition: {x: -8, y: 4, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1168,7 +1217,7 @@ MonoBehaviour:
     anchoredPosition: {x: -8, y: 4}
     sizeDelta: {x: 770, y: 451}
     pivot: {x: 0.5, y: 0.5}
-  - name: close
+  - name: 636c6f7365
     localPosition: {x: 363.4, y: 210.5, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -1177,9 +1226,10 @@ MonoBehaviour:
     anchoredPosition: {x: -21.6, y: -15}
     sizeDelta: {x: 44.1, y: 30}
     pivot: {x: 0.5, y: 0.5}
-  id: 537f28e6562af3043b7c262a66fcc6c4
+  id: 3533376632386536353632616633303433623763323632613636666363366334
   path:
-  - close
+  - 636c6f7365
+  inited: 0
 --- !u!1001 &1445360042
 Prefab:
   m_ObjectHideFlags: 0
@@ -1755,7 +1805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1790204095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1791,6 +1841,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navimask: {fileID: 419675932}
+  naviNodes: []
+  _id: -1
 --- !u!225 &1790204097
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1858,7 +1910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infomation: 
   naviNodes:
-  - name: Panel2
+  - name: 50616e656c32
     localPosition: {x: -3, y: 30, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1867,7 +1919,7 @@ MonoBehaviour:
     anchoredPosition: {x: -3, y: 30}
     sizeDelta: {x: 384, y: 274}
     pivot: {x: 0.5, y: 0.5}
-  - name: close
+  - name: 636c6f7365
     localPosition: {x: 170.4, y: 122, z: 0}
     localScale: {x: 1, y: 1, z: 1}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -1876,11 +1928,12 @@ MonoBehaviour:
     anchoredPosition: {x: -21.6, y: -15}
     sizeDelta: {x: 44.1, y: 30}
     pivot: {x: 0.5, y: 0.5}
-  id: Demo
+  id: 44656d6f
   path:
-  - Canvas
-  - Panel2
-  - close
+  - 43616e766173
+  - 50616e656c32
+  - 636c6f7365
+  inited: 0
 --- !u!114 &2103463371
 MonoBehaviour:
   m_ObjectHideFlags: 0
