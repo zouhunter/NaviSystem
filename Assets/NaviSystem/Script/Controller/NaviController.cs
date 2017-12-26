@@ -9,6 +9,8 @@ using System;
 public class NaviController: INaviCtrl
 {
     public UnityAction onComplete { get; set; }
+    public UnityAction<NaviItem> onStepActive { get; set; }
+
     private Transform root;
     private Transform parent;
     private NaviObject naviObj;
@@ -18,6 +20,8 @@ public class NaviController: INaviCtrl
     private Dictionary<string, RectTransform> transDic = new Dictionary<string, RectTransform>();
     private int _id = -1;
     public NaviItem Current { get; private set; }
+
+
     public NaviController(Transform startParent, NaviObject naviObj)
     {
         this.root = startParent;
@@ -92,6 +96,7 @@ public class NaviController: INaviCtrl
                     var obj = new GameObject(name, typeof(RectTransform));
                     rect = obj.GetComponent<RectTransform>();
                     epass = rect.gameObject.AddComponent<NaviItem>();
+                    epass.nodeInfo = nodeInfo;
                     epass.onComplete = NextNavi;
                     nodeDic.Add(id,epass);
                 }
@@ -137,6 +142,7 @@ public class NaviController: INaviCtrl
         else
         {
             InitNaviNode(_id);
+           
             ActiveStep(_id);
         }
     }
@@ -150,6 +156,9 @@ public class NaviController: INaviCtrl
                 Current = item.Value;
                 Current.gameObject.SetActive(true);
                 navimask.MoveToNode(Current.GetComponent<RectTransform>());
+                if (onStepActive != null){
+                    onStepActive.Invoke(Current);
+                }
             }
             else
             {

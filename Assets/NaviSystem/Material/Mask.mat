@@ -7,11 +7,11 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Mask
-  m_Shader: {fileID: 4800000, guid: 7ee6dc0422d0cb248b2138ac5f09a850, type: 3}
+  m_Shader: {fileID: 4800000, guid: b6013b93aa698884b9612e22baf4df55, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -64,7 +64,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Silder: 81.39483
+    - _Silder: 62.642162
     - _SrcBlend: 1
     - _Stencil: 8.47
     - _StencilComp: 20.6
@@ -73,10 +73,10 @@ Material:
     - _StencilWriteMask: 279.6
     - _UVSec: 0
     - _UseUIAlphaClip: 0
-    - _WaveSize: 52
-    - _WaveSpeed: -7.6
+    - _WaveSize: 14.7
+    - _WaveSpeed: 0.3
     - _ZWrite: 1
     m_Colors:
-    - _Center: {r: -7.5, g: -111.7, b: 0, a: 0}
+    - _Center: {r: -102.5, g: -52.5, b: 0, a: 0}
     - _Color: {r: 0.58121645, g: 0.78676474, b: 0.4628028, a: 0.641}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -57,8 +57,8 @@ public class NaviObjectDrawer : Editor
             var rect = GUILayoutUtility.GetRect(EditorGUIUtility.currentViewWidth,  EditorGUIUtility.singleLineHeight * (expland ?2.2f : 1.2f));
             var idRect = new Rect(rect.x, rect.y, btnWidth, EditorGUIUtility.singleLineHeight);
             var nameRect = new Rect(rect.x + idRect.width, rect.y, 50, EditorGUIUtility.singleLineHeight);
-            var textRect = new Rect(nameRect.width + idRect.width, rect.y, 130, EditorGUIUtility.singleLineHeight);
-            var btnRect = new Rect(rect.width - btnWidth, rect.y, btnWidth, EditorGUIUtility.singleLineHeight);
+            var textRect = new Rect(nameRect.width + idRect.width, rect.y, 100, EditorGUIUtility.singleLineHeight);
+            var btnRect = new Rect(rect.width -2 * btnWidth, rect.y, btnWidth, EditorGUIUtility.singleLineHeight);
             EditorGUI.SelectableLabel(nameRect, "(id)");
             EditorGUI.SelectableLabel(idRect, string.Format("[{0}]", (i + 1)));
             nodeList[i].name = EditorGUI.TextField(textRect, nodeList[i].name);
@@ -76,16 +76,15 @@ public class NaviObjectDrawer : Editor
 
             if(expland)
             {
-                nameRect.y += EditorGUIUtility.singleLineHeight;
-                nameRect.x = rect.x;
-                textRect = new Rect(nameRect.width, nameRect.y, 150, EditorGUIUtility.singleLineHeight);
+                nameRect = new Rect(rect.x , rect.y + EditorGUIUtility.singleLineHeight, 50, EditorGUIUtility.singleLineHeight);
+                textRect = new Rect(nameRect.width, nameRect.y, rect.width - nameRect.width, EditorGUIUtility.singleLineHeight);
 
                 EditorGUI.SelectableLabel(nameRect, "info");
                 nodeList[i].infomation = EditorGUI.TextField(textRect, nodeList[i].infomation);
             }
            
 
-            var menuRect = new Rect(nameRect.width + textRect.width, rect.y, EditorGUIUtility.currentViewWidth - nameRect.width - textRect.width, EditorGUIUtility.singleLineHeight * (expland ?2:1));
+            var menuRect = new Rect(rect.width - 5 * btnWidth, rect.y, 5 * btnWidth, EditorGUIUtility.singleLineHeight * (expland ?2:1));
             EditorGUIUtility.AddCursorRect(menuRect, MouseCursor.Link);
             TryAddMenuToRect(menuRect, i);
 
@@ -103,6 +102,18 @@ public class NaviObjectDrawer : Editor
         {
             RecordUtility.UpdateNodeInfos(naviObj);
         }
+        using (var hor = new EditorGUILayout.HorizontalScope())
+        {
+            if (GUILayout.Button("import from csv", EditorStyles.toolbarButton))
+            {
+                ImportNameAndInfo();
+            }
+            if(GUILayout.Button("exprot to csv",EditorStyles.toolbarButton))
+            {
+                ExportNameAndInfo();
+            }
+        }
+    
         EditorUtility.SetDirty(naviObj);
     }
     private void TryAddMenuToRect(Rect rect, int index)
@@ -145,6 +156,56 @@ public class NaviObjectDrawer : Editor
                 break;
             default:
                 break;
+        }
+    }
+
+    private void ImportNameAndInfo()
+    {
+        var path = EditorUtility.OpenFilePanel("选择信息文档", Application.dataPath, "csv");
+        if (!string.IsNullOrEmpty(path))
+        {
+            var text = System.IO.File.ReadAllText(path,System.Text.Encoding.GetEncoding("gb2312"));
+            var csv = ParserCSV.Parse(text);
+            for (int i = 1; i < csv.Length; i++)
+            {
+                var array = csv[i];
+                var name = array[0];
+                var infomation = array[1];
+                if(nodeList.Count > i - 1)
+                {
+                    var item = nodeList[i - 1];
+                    Debug.Assert(item.name == name, item.name + " != " + name);
+                    item.infomation = infomation;
+                }
+                else
+                {
+                    nodeList.Add(new NaviNode());
+                    var item = nodeList[i - 1];
+                    Debug.Log("add:" + item.name);
+                    item.name = name;
+                    item.infomation = infomation;
+                }
+            }
+        }
+    }
+    private void ExportNameAndInfo()
+    {
+        string[][] info = new string[nodeList.Count + 1][];
+        info[0] = new string[2];
+        info[0][0] = "Name";
+        info[0][1] = "Information";
+        for (int i = 0; i < nodeList.Count; i++)
+        {
+            info[i + 1] = new string[2];
+            info[i + 1][0] = nodeList[i].name;
+            info[i + 1][1] = nodeList[i].infomation;
+        }
+        var text = UParserCSV.UParser(info);
+        var path = EditorUtility.SaveFilePanel("保存csv", Application.dataPath, "doc", "csv");
+        Debug.Log(System.IO.Path.GetFullPath(path));
+        if (!string.IsNullOrEmpty(path))
+        {
+            System.IO.File.WriteAllText( path, text, System.Text.Encoding.GetEncoding("gb2312"));
         }
     }
 }

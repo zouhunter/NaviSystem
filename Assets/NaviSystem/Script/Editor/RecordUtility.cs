@@ -36,15 +36,15 @@ namespace NaviSystem
             tnode.sizeDelta = currTrans.sizeDelta;
             return tnode;
         }
-        public static void TryRecordToNaviNode(NaviNode naviNode,RectTransform targetTrans)
+        public static void TryRecordToNaviNode(NaviNode naviNode, RectTransform targetTrans)
         {
+            Debug.Log("[record]:" + targetTrans.name);
             TryRecordTransInfo(naviNode, targetTrans);
             var pfb = PrefabUtility.GetPrefabParent(targetTrans);
             if (pfb != null)
             {
                 var pfbRoot = PrefabUtility.FindPrefabRoot((pfb as Transform).gameObject);
                 naviNode.id = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(pfbRoot));
-                Debug.Log("[record id]:" + naviNode.id);
                 naviNode.path = new List<string>();
                 var trans = pfb as Transform;
                 while (trans.gameObject != pfbRoot)
@@ -57,7 +57,6 @@ namespace NaviSystem
             {
                 var active = UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene();
                 naviNode.id = active.name;
-                Debug.Log("[record id(scene)]:" + naviNode.id);
                 naviNode.path = new List<string>();
                 var trans = targetTrans.transform;
                 while (trans != null)
