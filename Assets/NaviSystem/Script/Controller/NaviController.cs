@@ -81,9 +81,16 @@ public class NaviController: INaviCtrl
             {
                 var item = nodeInfo.naviNodes[i];
                 path.Add(item.name);
-                RectTransform rect = FindTran(path.ToArray());
-                if (i == nodeInfo.naviNodes.Count - 1)
+                RectTransform rect = null;
+                if(i < nodeInfo.naviNodes.Count - 1)
                 {
+                    rect = FindTran(path.ToArray());
+                }
+                else
+                {
+                    var name = string.Format("{0}.{1}",i, item.name);
+                    var obj = new GameObject(name, typeof(RectTransform));
+                    rect = obj.GetComponent<RectTransform>();
                     epass = rect.gameObject.AddComponent<NaviItem>();
                     epass.onComplete = NextNavi;
                     nodeDic.Add(id,epass);

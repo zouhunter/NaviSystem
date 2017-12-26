@@ -14,10 +14,10 @@ namespace NaviSystem
         public string name;
         public string infomation;
         [HideInInspector]
-        public List<TransNode> naviNodes;
+        public List<TransNode> naviNodes = new List<TransNode>();
 #if UNITY_EDITOR //用于快速更新
         public string id;//指定预制体
-        public List<string> path;//指定路径
+        public List<string> path = new List<string>();//指定路径
 #endif
     }
 }
