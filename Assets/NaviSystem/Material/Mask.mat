@@ -64,7 +64,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Silder: 26.68107
+    - _Silder: 81.39483
     - _SrcBlend: 1
     - _Stencil: 8.47
     - _StencilComp: 20.6
@@ -73,8 +73,10 @@ Material:
     - _StencilWriteMask: 279.6
     - _UVSec: 0
     - _UseUIAlphaClip: 0
+    - _WaveSize: 52
+    - _WaveSpeed: -7.6
     - _ZWrite: 1
     m_Colors:
-    - _Center: {r: 167.40002, g: 152, b: 0, a: 0}
-    - _Color: {r: 0.23729454, g: 0.4709141, b: 0.5661765, a: 0.641}
+    - _Center: {r: -7.5, g: -111.7, b: 0, a: 0}
+    - _Color: {r: 0.58121645, g: 0.78676474, b: 0.4628028, a: 0.641}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

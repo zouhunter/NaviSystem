@@ -6,7 +6,8 @@ Shader "UI/Default_Mask"
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 	_Color("Tint", Color) = (1,1,1,1)
-
+		_WaveSize("WaveSize", Range(0.1,100)) = 1
+		_WaveSpeed("WaveSpeed", Range(-10,10)) = 1
 		_StencilComp("Stencil Comparison", Float) = 8
 		_Stencil("Stencil ID", Float) = 0
 		_StencilOp("Stencil Operation", Float) = 0
@@ -84,6 +85,8 @@ Shader "UI/Default_Mask"
 	fixed4 _TextureSampleAdd;
 	float4 _ClipRect;
 	//-------------------add----------------------
+	float _WaveSpeed;
+	float _WaveSize;
 	float _Silder;
 	float2 _Center;
 	//-------------------add----------------------
@@ -112,7 +115,8 @@ Shader "UI/Default_Mask"
 		if (distance(IN.worldPosition.xy, _Center.xy) > _Silder)
 		{
 			float dis = distance(IN.worldPosition.xy, _Center.xy);
-			color.a *= (_Silder / dis) * sin(dis);
+			color.a *= (_Silder / dis) * abs(sin(dis / _WaveSize + _Time.y * _WaveSpeed));
+			
 		}
 		else {
 			clip(-1);
